@@ -1,0 +1,11 @@
+export function Heritage(){
+  return (
+    <section id="heritage" className="max-w-[1440px] mx-auto px-4 md:px-8 py-16 md:py-24">
+      <div className="rounded-[24px] md:rounded-[32px] bg-[#2B1A0E] text-[#FFFBF7] p-6 md:p-12 lg:p-16 grid md:grid-cols-2 gap-10 items-center overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-[#C9A86A]/10 rounded-full blur-3xl"/>
+        <div className="relative heritage-slide-in"><div className="font-sans text-[11px] tracking-[0.2em] uppercase text-[#C9A86A]">Our Heritage</div><h2 className="font-serif text-[32px] md:text-[44px] leading-[1.05] mt-3">Twenty years, <br/> one stitch at a time.</h2><p className="font-sans text-[14px] leading-[1.8] text-[#E9DDD1]/80 mt-5 max-w-[420px]">Suman&apos;s Lucknowi began in 1999 curating authentic Lucknowi Chikankari. 2-Taar is not embroidery — it&apos;s shadow. Two threads, 32 stitches, 15 days for one saree. We work directly with artisans in Lucknow, finishing and curating in Ghatkopar East, Mumbai.</p><div className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-white/10 max-w-[380px]">{[{k:"32",v:"Stitches"},{k:"15d",v:"Per saree"},{k:"60gm",v:"Pure base"}].map(s=><div key={s.k}><div className="font-serif text-[22px] text-[#C9A86A]">{s.k}</div><div className="font-sans text-[11px] uppercase tracking-widest text-[#E9DDD1]/60 mt-1">{s.v}</div></div>)}</div></div>
+        <div className="bg-[#FFFBF7] rounded-[20px] p-5 text-[#2B1A0E]"><div className="aspect-[4/3] rounded-[14px] bg-gradient-to-br from-[#FFF5EB] to-[#EADDCF] border border-[#E9DDD1] p-6 flex flex-col justify-between relative overflow-hidden"><img src="/assets/navbar-bg.png" alt="Chikankari saree" className="absolute inset-0 h-full w-full object-cover opacity-85 scale-110" /><div className="absolute inset-0 bg-[#FFFBF7]/42"/><div className="relative font-serif text-[12px] tracking-[0.2em] uppercase text-[#8B7355]">Artisan Note</div><div className="relative font-serif italic text-[20px] leading-[1.3] bg-white/55 rounded-[14px] p-4 backdrop-blur-[1px]">&quot;Rai dana, phanda, jaali — each stitch has a breath. 2-Taar is tender, it breaks if rushed.&quot;</div><div className="relative font-sans text-[11px] text-[#8B7355]">— Master artisan, Chowk, Lucknow</div></div></div>
+      </div>
+    </section>
+  )
+}
