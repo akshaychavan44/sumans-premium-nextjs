@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { PRODUCTS } from "../data/products";
-import { Announcement } from "./Announcement";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { Categories } from "./Categories";
@@ -11,6 +10,7 @@ import { ProductGrid } from "./ProductGrid";
 import { CartDrawer } from "./CartDrawer";
 import { QuickView } from "./QuickView";
 import { Heritage } from "./Heritage";
+import { InstagramReels } from "./InstagramReels";
 import { Footer } from "./Footer";
 import { Truck } from "lucide-react";
 
@@ -63,7 +63,6 @@ export default function App(){
 
   return (
     <div className="min-h-screen bg-[#FFFBF7] text-[#2B1A0E] antialiased selection:bg-[#C9A86A]/30 overflow-x-hidden">
-      <Announcement/>
       <Header cartCount={cartCount} wishlistCount={wishlist.length} search={search} setSearch={setSearch} onCartOpen={()=>setCartOpen(true)} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
       <Hero whatsappLink={whatsappLink}/>
       <Categories setActiveCategory={setActiveCategory}/>
@@ -80,6 +79,7 @@ export default function App(){
           </div>
         </div>
       </section>
+      <InstagramReels whatsappLink={whatsappLink}/>
       <Heritage/>
       <Footer/>
       <CartDrawer cart={cart} open={cartOpen} onClose={()=>setCartOpen(false)} onQty={updateQty} onRemove={removeFromCart} cartTotal={cartTotal}/>

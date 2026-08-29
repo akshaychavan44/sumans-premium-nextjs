@@ -1,33 +1,145 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-burgundy: #4A0E0E;
+  --primary-deep: #2B1A0E;
+  --accent-gold: #C9A86A;
+  --accent-gold-light: #E5D2A8;
+  --bg-cream: #FFFBF7;
+  --bg-sand: #F7EFE6;
+  --border-subtle: #E9DDD1;
+}
+
 body {
-  background: #FFFBF7;
+  background-color: #FFFBF7;
+  color: #2B1A0E;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(201, 168, 106, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(74, 14, 14, 0.03) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
 .font-serif {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", "Cormorant Garamond", serif;
+}
+
+.font-cormorant {
+  font-family: "Cormorant Garamond", serif;
 }
 
 .font-sans {
-  font-family: "Inter", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.heritage-slide-in {
-  animation: heritage-slide-in 900ms ease-out both;
+/* Custom Weave Texture Utilities */
+.bg-chikan-mesh {
+  background-image: radial-gradient(circle at 50% 50%, rgba(201, 168, 106, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
 }
 
-@keyframes heritage-slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(-56px);
-  }
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #DFCA9E 0%, #C9A86A 50%, #A37E3E 100%);
+}
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.text-gold-gradient {
+  background: linear-gradient(135deg, #DFCA9E 0%, #C9A86A 50%, #8A642B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #4A0E0E 0%, #C9A86A 50%, #4A0E0E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 106, 0.4); }
+  50% { box-shadow: 0 0 20px 4px rgba(201, 168, 106, 0.2); }
+}
+
+@keyframes sound-bar {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.animate-float {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+.animate-sound-1 {
+  animation: sound-bar 1.2s ease-in-out infinite;
+}
+.animate-sound-2 {
+  animation: sound-bar 0.9s ease-in-out 0.2s infinite;
+}
+.animate-sound-3 {
+  animation: sound-bar 1.4s ease-in-out 0.4s infinite;
+}
+
+/* Smooth glassmorphism */
+.glass-panel {
+  background: rgba(255, 251, 247, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(233, 221, 209, 0.8);
+}
+
+.glass-dark {
+  background: rgba(43, 26, 14, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFBF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9C5B2;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A86A;
 }
